@@ -1085,5 +1085,82 @@ echo $verdadero;
       echo $e->getMessage();
   }
 
+  /**
+     *TODO Funciones definidas por el usuario
+     */
+
+    /**
+     ** Las funciones definidas por el usuario nos permiten reutilizar código. Las funciones se definen con la palabra reservada function, seguida del nombre de la función y paréntesis. Dentro de los paréntesis se colocan los parámetros de la función, separados por comas. Después de los paréntesis se coloca el bloque de código de la función, el cual puede contener uno o más instrucciones. Para ejecutar una función, se coloca el nombre de la función seguido de paréntesis, y dentro de los paréntesis se colocan los argumentos de la función, separados por comas. Son una herramienta muy poderosa para reutilizar código y hacerlo más mantenible.
+     */
+
+    /**
+     *TODO Funciones en PHP
+     */
+
+     function saludar() {
+      echo 'Hola';
+  }
+
+  saludar();
+  
+  /**
+   *TODO Funciones que no retornan valor
+   */
+
+  /**
+   ** Las funciones que no retornan valor se utilizan para ejecutar una o más instrucciones, pero no retornan un valor. Para definir una función que no retorne valor, se coloca la palabra reservada void después del paréntesis de la función
+   */
+
+  //declare(strict_types=1);
+
+  function sumar(int $numero1 = 0, array $numero2): void {
+      echo $numero1 + $numero2;
+  }
+  sumar(10, []);
+
+  function sumar2(int $numero1 = 0, array $numero2) {
+      echo $numero1 + $numero2;
+  }
+  sumar2(10, []);
+
+  /**
+   *TODO Funciones que retornan valor
+   */
+
+  /**
+   ** Las funciones que retornan valor se utilizan para ejecutar una o más instrucciones y retornar un valor. Para definir una función que retorne valor, se coloca el tipo de dato que retorna la función después del paréntesis de la función
+   */
+
+  //declare(strict_types=1);
+  //include 'includes/header.php';
+  function usuarioAutenticado(bool $autenticado): ?string {
+      if ($autenticado) {
+          return 'El usuario está autenticado';
+      } else {
+          return null;
+      }
+  }
+
+  $usuario = usuarioAutenticado(false);
+  echo $usuario;
+  //include 'includes/footer.php';
+
+  /**
+   *TODO include, require, include_once, require_once
+   */
+
+  /**
+   ** include: incluye y ejecuta el archivo especificado
+   ** require: incluye y ejecuta el archivo especificado, si el archivo no existe o tiene un error, se detiene la ejecución del programa
+   ** include_once: incluye y ejecuta el archivo especificado, si el archivo ya ha sido incluido, no lo incluye nuevamente
+   ** require_once: incluye y ejecuta el archivo especificado, si el archivo ya ha sido incluido, no lo incluye nuevamente, si el archivo no existe o tiene un error, se detiene la ejecución del programa
+   */
+
+  echo <<<HTML
+  <header>
+      <?php include(includes/header.php') ?>
+  </header>
+  HTML;
+
 ?>
 
