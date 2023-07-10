@@ -886,6 +886,204 @@ echo $verdadero;
 
     var_dump(isset($cliente['nombre']));
     var_dump(isset($cliente['codigo']));
-    
+
+     /**
+     *TODO Estrucutras de control
+     */
+
+    /**
+     ** Las estructuras de control nos permiten controlar el flujo de ejecución de nuestro código
+     ** Las estructuras de control más comunes son: estructuras de control condicionales, estructuras de control de repetición y estructuras de control de excepciones
+     */
+
+    /**
+     *TODO Estructuras de control condicionales
+     */
+
+    /**
+     ** if: se utiliza para ejecutar una o más instrucciones si se cumple una condición
+     */
+
+     if (10 > 3) {
+      echo '10 es mayor que 3';
+  }
+
+  if (10 > 3) {
+      echo '10 es mayor que 3';
+  } else {
+      echo '10 no es mayor que 3';
+  }
+
+  if (10 > 3) {
+      echo '10 es mayor que 3';
+  } elseif (10 < 20) {
+      echo '10 es menor que 20';
+  } else {
+      echo '10 no es mayor que 3 y 10 no es menor que 20';
+  }
+
+  /**
+   ** switch: se utiliza para ejecutar una o más instrucciones si se cumple una condición, dependiendo del valor de una variable. Despues de cada case se debe colocar la palabra reservada break
+   */
+
+  $autenticado = true;
+  $admin = false;
+
+  if ($autenticado && $admin) {
+      echo 'Usuario autenticado correctamente';
+  } else {
+      echo 'Usuario no autenticado, inicia sesión';
+  }
+
+  $cliente = [
+      'nombre' => 'Juan',
+      'saldo' => 0,
+      'informacion' => [
+          'tipo' => 'Regular'
+      ]
+  ];
+
+  echo "<br>";
+
+  if (!empty($cliente)) {
+      echo 'El arreglo de cliente no está vacio';
+
+      if ($cliente['saldo'] > 0) {
+          echo 'El cliente tiene saldo disponible';
+      } else {
+          echo 'No hay saldo';
+      }
+  }
+
+  echo "<br>";
+
+  if($cliente['saldo'] > 0) {
+      echo 'El cliente tiene saldo';
+  } else if ($cliente['informacion']['tipo'] === 'Premium') {
+      echo 'El cliente es premium';
+  } else {
+      echo 'No hay cliente definido o no tiene saldo o no es premium';
+  }
+
+  echo "<br>";
+
+  $tecnologia = 'HTML';
+
+  switch ($tecnologia) {
+      case 'PHP':
+          echo 'PHP, un excelente lenguaje';
+          break;
+      case 'JavaScript':
+          echo 'Genial, el lenguaje de la web';
+          break;
+      case 'HTML':
+          echo 'Emmm...';
+          break;
+      default:
+          echo 'Algo lenguaje que no se cual es';
+          break;
+  }
+
+  /**
+   *TODO Estructuras de control de repetición
+   */
+
+  /**
+   ** while: se utiliza para ejecutar una o más instrucciones mientras se cumpla una condición
+   ** do while: se utiliza para ejecutar una o más instrucciones mientras se cumpla una condición, la diferencia con el while es que el do while se ejecuta al menos una vez
+   ** for: se utiliza para ejecutar una o más instrucciones un número específico de veces
+   */
+
+  $i = 0;
+
+  while ($i < 10) {
+      echo $i . '<br>';
+      $i++;
+  }
+
+  echo "<br>";
+
+  $i = 0;
+
+  do {
+      echo $i . '<br>';
+      $i++;
+  } while ($i < 10);
+
+  echo "<br>";
+
+  for ($i = 0; $i < 10; $i++) {
+      echo $i . '<br>';
+  }
+
+  echo "<br>";
+
+  $clientes = ['Pedro', 'Juan', 'Karen'];
+
+  foreach ($clientes as $cliente):
+      echo $cliente . '<br>';
+  endforeach;
+
+  $cliente = [
+      'nombre' => 'Juan',
+      'saldo' => 200,
+      'tipo' => 'Premium'
+  ];
+
+  foreach ($cliente as $key => $valor):
+      echo $key . ' - ' . $valor . '<br>';
+  endforeach;
+
+  $productos = [
+      [
+          'nombre' => 'Tablet',
+          'precio' => 200,
+          'disponible' => true
+      ],
+      [
+          'nombre' => 'Television',
+          'precio' => 300,
+          'disponible' => true
+      ],
+      [
+          'nombre' => 'Monitor',
+          'precio' => 400,
+          'disponible' => false
+      ]
+  ];
+
+  foreach ($productos as $producto) { ?>
+      <li>
+          <p>Producto: <?php echo $producto['nombre']; ?></p>
+          <p>Precio: <?php echo $producto['precio']; ?></p>
+          <p><?php echo ($producto['disponible']) ? 'Disponible' : 'No disponible'; ?></p>
+      </li>
+  <?php
+  }
+
+  /**
+   *TODO Estructuras de control de excepciones
+   */
+
+  /**
+   ** try catch: se utiliza para capturar errores en tiempo de ejecución. El código que puede generar un error se coloca dentro del bloque try, y el código que se ejecuta en caso de que se genere un error se coloca dentro del bloque catch
+   */
+
+  try {
+      // Código que puede generar un error
+  } catch (Exception $e) {
+      // Código que se ejecuta en caso de error
+  }
+
+  try {
+      if (isset($cliente)) {
+          echo 'El cliente existe';
+      } else {
+          throw new Exception('El cliente no existe');
+      }
+  } catch (Exception $e) {
+      echo $e->getMessage();
+  }
+
 ?>
 
